@@ -1,7 +1,8 @@
 import { PresupuestoState } from "./PresupuestoState";
 type ActionProps =
     | { type: "ESTABLECER_PRESUPUESTO"; payload: number }
-    | { type: "OBTENER_PRESUPUESTO" };
+    | { type: "OBTENER_PRESUPUESTO" }
+    | { type: "ELIMINAR_PRESUPUESTO" };
 
 export const presupuestoReducer = (
     state: PresupuestoState,
@@ -29,6 +30,16 @@ export const presupuestoReducer = (
                 )
                     ? true
                     : false,
+            };
+        case "ELIMINAR_PRESUPUESTO":
+            localStorage.removeItem("presupuesto_inicial");
+            localStorage.removeItem("presupuesto_restante");
+            localStorage.removeItem("gastos");
+            return {
+                ...state,
+                presupuesto_incial: 0,
+                presupuesto_restante: 0,
+                presupuesto_existe: false
             };
 
         default:

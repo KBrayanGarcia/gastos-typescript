@@ -1,12 +1,13 @@
 interface Props {
     data: Array<any>
+    renderComponent: (element: any, index: number) => any
 }
 
-const ArrayMap = ({data}: Props) => {
+const ArrayMap = ({ data, renderComponent }: Props) => {
     return (
         <>
-            {data.map(d => (
-                <p>{d}</p>
+            {data.map((element, index) => (
+                renderComponent(element, index)
             ))}
         </>
     )

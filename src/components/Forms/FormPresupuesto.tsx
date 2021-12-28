@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import NumberFormat from "react-number-format";
-import usePresupuesto from "../hooks/usePresupuesto";
+import usePresupuesto from "../../hooks/usePresupuesto";
 
 interface datosForm {
     presupuesto: number | undefined;

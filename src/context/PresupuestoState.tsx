@@ -17,6 +17,7 @@ export interface PresupuestoContextProps {
     state: PresupuestoState,
     establecerPresupuesto: (presupuesto: number) => void
     obtenerPresupuesto: () => void
+    eliminarPresupuesto: () => void
 }
 
 export const PresupuestoContext = createContext({} as PresupuestoContextProps)
@@ -37,6 +38,12 @@ const PresupuestoProvider = ({children}: any) => {
         })
     }
 
+    const eliminarPresupuesto = () => {
+        dispatch({
+            type: "ELIMINAR_PRESUPUESTO"
+        })
+    }
+
     return (
         <PresupuestoContext.Provider
             value={{
@@ -46,7 +53,8 @@ const PresupuestoProvider = ({children}: any) => {
                     presupuesto_existe: state_modificado.presupuesto_existe
                 },
                 establecerPresupuesto,
-                obtenerPresupuesto
+                obtenerPresupuesto,
+                eliminarPresupuesto
             }}
         >
             {children}

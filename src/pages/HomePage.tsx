@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FormPresupuesto from "../components/FormPresupuesto";
+import FormPresupuesto from "../components/Forms/FormPresupuesto";
 import { colors_light } from "../theme/colors";
 import { useHistory } from 'react-router-dom';
 import { useContext } from "react";
